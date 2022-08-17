@@ -22,5 +22,9 @@ namespace LeetcodeConsole
         public Action Action {
             get => Solution.TestSamples;
         }
+
+        public string Display {
+            get => Name;
+        }
     }
 }
