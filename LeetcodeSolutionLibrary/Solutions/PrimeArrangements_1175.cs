@@ -24,25 +24,28 @@ namespace LeetcodeSolutionLibrary.Solutions
 {
     public class PrimeArrangements_1175 : ILeetcodeSolution
     {
-        public string Description = @"
-            Return the number of permutations of 1 to n so that prime numbers are at prime indices (1-indexed.)
+        public int Number { get => 1175; }
+        public string Title { get => "Prime Arrangements"; }
 
-            (Recall that an integer is prime if and only if it is greater than 1, and cannot be written as a product of two positive integers both smaller than it.)
+        string ILeetcodeSolution.Description { get => @"
+Return the number of permutations of 1 to n so that prime numbers are at prime indices (1-indexed.)
 
-            Since the answer may be large, return the answer modulo 10^9 + 7. 
+(Recall that an integer is prime if and only if it is greater than 1, and cannot be written as a product of two positive integers both smaller than it.)
 
-            Example 1:
-            Input: n = 5
-            Output: 12
-            Explanation: For example [1,2,5,4,3] is a valid permutation, but [5,2,3,4,1] is not because the prime number 5 is at index 1.
-            Example 2:
+Since the answer may be large, return the answer modulo 10^9 + 7. 
 
-            Input: n = 100
-            Output: 682289015 
+Example 1:
+Input: n = 5
+Output: 12
+Explanation: For example [1,2,5,4,3] is a valid permutation, but [5,2,3,4,1] is not because the prime number 5 is at index 1.
+Example 2:
 
-            Constraints:
-            1 <= n <= 100
-            ";
+Input: n = 100
+Output: 682289015 
+
+Constraints:
+1 <= n <= 100
+            "; }
 
         public int NumPrimeArrangements(int n)
         {

@@ -2,12 +2,13 @@
 {
     internal class Program
     {
-        private static Dictionary<string, IMenuItem> MenuItems => GetMenuItems();
+        private static MenuItems menuItems => GetMenuItems();
 
-        private static Dictionary<string, IMenuItem> GetMenuItems()
+        private static MenuItems GetMenuItems()
         {
-            Dictionary<string, IMenuItem> menuItems = new();
-            menuItems.Add("1175", new SolutionMenuItem("Prime Arrangements", 1175, new LeetcodeSolutionLibrary.Solutions.PrimeArrangements_1175()));
+            MenuItems menuItems = new();
+            menuItems.AddSolution(new LeetcodeSolutionLibrary.Solutions.PrimeArrangements_1175());
+            menuItems.AddSolution(new LeetcodeSolutionLibrary.Solutions.TwoSum_1());
             return menuItems;
         }
 
@@ -22,10 +23,10 @@
                 if (selection == "q" || selection == "Q")
                     break;
 
-                if (MenuItems.ContainsKey(selection))
+                if (menuItems.ContainsKey(selection))
                 {
                     Console.WriteLine();
-                    MenuItems[selection].Action();
+                    menuItems[selection].Action();
                     Console.WriteLine("Press any key to continue");
                     Console.ReadKey();
                 }
@@ -38,7 +39,7 @@
         {
             Console.Clear();
 
-            foreach (KeyValuePair<string, IMenuItem> item in MenuItems)
+            foreach (KeyValuePair<string, IMenuItem> item in menuItems)
                 showMenuLine(item.Key, item.Value.Display);
 
             showMenuLine("Q", "Quit");

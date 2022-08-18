@@ -1,36 +1,35 @@
 ﻿using LeetcodeSolutionLibrary;
+using System.Text.RegularExpressions;
 
 namespace LeetcodeConsole
 {
     internal class SolutionMenuItem : ISolutionMenuItem
     {
-        public string Name { get; set; }
-        public int Number { get; set; }
         public ILeetcodeSolution Solution { get; set; }
+        public string Key => Solution.Number.ToString();
+        public string Display => Solution.Title;
 
-        public SolutionMenuItem(string name, int number, ILeetcodeSolution solution)
+        public SolutionMenuItem(ILeetcodeSolution solution)
         {
-            Name = name;
-            Number = number;
             Solution = solution;
-        }
-
-        public string Key
-        {
-            get => Number.ToString();
         }
 
         public Action Action
         {
             get
             {
-                return () => Console.WriteLine(Solution.GenerateSampleResults());
+                //return () => Console.WriteLine(Solution.GenerateSampleResults());
+                return () =>
+                {
+                    Console.Clear();
+                    Console.WriteLine(Solution.Number + ". " + Solution.Title);
+                    Console.WriteLine(Solution.Description);
+                    Console.WriteLine("==============================");
+                    Console.WriteLine("Solutions:");
+                    Console.WriteLine();
+                    Console.WriteLine(Solution.GenerateSampleResults());
+                };
             }
-        }
-
-        public string Display
-        {
-            get => Name;
         }
     }
 }
