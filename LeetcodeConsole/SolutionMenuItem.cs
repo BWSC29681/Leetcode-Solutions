@@ -6,7 +6,7 @@ namespace LeetcodeConsole
     {
         public string Name { get; set; }
         public int Number { get; set; }
-        public ILeetcodeSolution Solution { get; set; }        
+        public ILeetcodeSolution Solution { get; set; }
 
         public SolutionMenuItem(string name, int number, ILeetcodeSolution solution)
         {
@@ -15,15 +15,21 @@ namespace LeetcodeConsole
             Solution = solution;
         }
 
-        public string Key {
+        public string Key
+        {
             get => Number.ToString();
         }
 
-        public Action Action {
-            get => Solution.TestSamples;
+        public Action Action
+        {
+            get
+            {
+                return () => Console.WriteLine(Solution.GenerateSampleResults());
+            }
         }
 
-        public string Display {
+        public string Display
+        {
             get => Name;
         }
     }

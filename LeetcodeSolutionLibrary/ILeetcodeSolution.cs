@@ -4,7 +4,7 @@ namespace LeetcodeSolutionLibrary
 {
     public interface ILeetcodeSolution
     {
-        public void TestSamples();
+        public string GenerateSampleResults();
     }
 
 }

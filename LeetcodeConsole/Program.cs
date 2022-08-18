@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        private static Dictionary<string, IMenuItem> MenuItems = GetMenuItems();
+        private static Dictionary<string, IMenuItem> MenuItems => GetMenuItems();
 
         private static Dictionary<string, IMenuItem> GetMenuItems()
         {
@@ -16,8 +16,11 @@
             while (true)
             {
                 ShowMenu();
-                Console.Write("Enter select: ");
+                Console.Write("Enter selection: ");
                 string selection = Console.ReadLine();
+
+                if (selection == "q" || selection == "Q")
+                    break;
 
                 if (MenuItems.ContainsKey(selection))
                 {
@@ -36,9 +39,13 @@
             Console.Clear();
 
             foreach (KeyValuePair<string, IMenuItem> item in MenuItems)
-            {
-                    Console.WriteLine($"{item.Key}. {item.Value.Display}");
-            }                
+                showMenuLine(item.Key, item.Value.Display);
+
+            showMenuLine("Q", "Quit");
+            Console.WriteLine();
+
+            void showMenuLine(string key, string desc)
+                => Console.WriteLine($"{key}. {desc}");
         }
     }
 }
