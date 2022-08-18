@@ -7,8 +7,8 @@
         private static MenuItems GetMenuItems()
         {
             MenuItems menuItems = new();
-            menuItems.AddSolution(new LeetcodeSolutionLibrary.Solutions.PrimeArrangements_1175());
             menuItems.AddSolution(new LeetcodeSolutionLibrary.Solutions.TwoSum_1());
+            menuItems.AddSolution(new LeetcodeSolutionLibrary.Solutions.PrimeArrangements_1175());            
             return menuItems;
         }
 
