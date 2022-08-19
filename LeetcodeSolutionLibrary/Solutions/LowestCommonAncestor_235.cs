@@ -30,15 +30,6 @@ All Node.val are unique.
 p != q
 p and q will exist in the BST.";
 
-        //Definition for a binary tree node.
-        public class TreeNode
-        {
-            public int val;
-            public TreeNode left;
-            public TreeNode right;
-            public TreeNode(int x) { val = x; }
-        }
-
 
         public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q)
         {
@@ -59,32 +50,7 @@ p and q will exist in the BST.";
                 return true;
             else
                 return isDescendant(root.left, descendant) || isDescendant(root.right, descendant);
-        }
-
-        private TreeNode BuildTree(int?[] vals)
-        {
-            var root = new TreeNode(vals[0].Value);
-
-            for (int i = 1; i < vals.Length; i++)
-                if (vals[i].HasValue)
-                    AddTreeNode(root, vals[i].Value);
-            return root;
-        }
-
-        private void AddTreeNode(TreeNode root, int val)
-        {
-            if (val < root.val)
-            {
-                if (root.left == null) root.left = new TreeNode(val);
-                else AddTreeNode(root.left, val);
-            }
-            else
-            {
-                if (root.right == null) root.right = new TreeNode(val);
-                else AddTreeNode(root.right, val);
-            }
-
-        }
+        }        
 
         public string GenerateSampleResults()
         {
@@ -96,7 +62,7 @@ p and q will exist in the BST.";
 
             void RunTest(int?[] vals, int p, int q)
             {
-                TreeNode? lca = LowestCommonAncestor(BuildTree(vals), new TreeNode(p), new TreeNode(q));
+                TreeNode? lca = LowestCommonAncestor(TreeNode.BuildTree(vals), new TreeNode(p), new TreeNode(q));
                 results += $"{getArrayForDisplay(vals)}, {p}, {q}: {lca.val}\n";
             }
 
