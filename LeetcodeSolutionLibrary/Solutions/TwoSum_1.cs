@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LeetcodeSolutionLibrary.Solutions
 {
-    public class TwoSum_1 : ILeetcodeSolution
+    public class TwoSum_1 : LeetcodeSolutionBase, ILeetcodeSolution
     {
         public int Number => 1;
         public string Title => "Two Sum";
@@ -49,11 +49,6 @@ Only one valid answer exists.";
             void getResults(int[] nums, int target)
             {
                 results += $"{getArrayForDisplay(nums)}, {target}: {getArrayForDisplay(TwoSum(nums, target))}\n";
-            }
-
-            string getArrayForDisplay(int[] nums)
-            {
-                return "[" + string.Join(',', nums) + "]";
             }
 
             return results;

@@ -2,7 +2,7 @@
 
 namespace LeetcodeSolutionLibrary.Solutions
 {
-    public class PrimeArrangements_1175 : ILeetcodeSolution
+    public class PrimeArrangements_1175 : LeetcodeSolutionBase, ILeetcodeSolution
     {
         public int Number { get => 1175; }
         public string Title { get => "Prime Arrangements"; }

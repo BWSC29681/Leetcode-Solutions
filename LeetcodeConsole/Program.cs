@@ -1,4 +1,9 @@
-﻿namespace LeetcodeConsole
+﻿/*
+ * Console app to test Leetcode Solution Library.
+ * To auto-start a solution, specify the solution # as a command-line argument.
+ */
+
+namespace LeetcodeConsole
 {
     internal class Program
     {
@@ -8,7 +13,8 @@
         {
             MenuItems menuItems = new();
             menuItems.AddSolution(new LeetcodeSolutionLibrary.Solutions.TwoSum_1());
-            menuItems.AddSolution(new LeetcodeSolutionLibrary.Solutions.PrimeArrangements_1175());            
+            menuItems.AddSolution(new LeetcodeSolutionLibrary.Solutions.LowestCommonAncestor_235());
+            menuItems.AddSolution(new LeetcodeSolutionLibrary.Solutions.PrimeArrangements_1175());
             return menuItems;
         }
 
@@ -18,7 +24,12 @@
             {
                 ShowMenu();
                 Console.Write("Enter selection: ");
-                string selection = Console.ReadLine();
+                string selection = "";
+
+                if (args.Length > 0)
+                    selection = args[0];
+                else 
+                    selection = Console.ReadLine();
 
                 if (selection == "q" || selection == "Q")
                     break;
